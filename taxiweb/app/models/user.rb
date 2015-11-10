@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   #after_create :set_default_profile
          
   enum roles: [:user, :operator, :driver, :admin]
-  has_one :profile;
+  has_one :profile
   
   #def set_default_role
   #  self.role ||= :user
