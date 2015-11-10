@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   #after_initialize :set_default_role
-  after_create :set_default_profile
+  #after_create :set_default_profile
          
   enum roles: [:user, :operator, :driver, :admin]
   has_one :profile;
