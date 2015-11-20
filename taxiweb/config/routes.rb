@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'pages/estimate_cost'
+
+  get 'pages/e'
+
   resources :profiles
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   #get 'pages/index'
-  root 'pages#index'
+  root 'pages#estimate_cost'
 
   get 'pages/about_us'
 
