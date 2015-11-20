@@ -1,11 +1,9 @@
 <%= simple_form_for(@profile) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group">
-    <%= f.input :first_name%>
-    <br />
+  <div class="form-inputs">
+    <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <br />
     <%= f.input :born_at %>
   </div>
 

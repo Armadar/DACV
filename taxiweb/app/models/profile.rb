@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
   #:confirmable, :lockable, :timeoutable and :omniauthable
   #devise :database_authenticatable, :registerable,
   #       :recoverable, :rememberable, :trackable, :validatable
-  def fulltext
-      self.profile.first_name + " " + self.profile.last_name
-  end
+    def full_name
+      self.first_name +  " " + self.last_name
+    end
 end
