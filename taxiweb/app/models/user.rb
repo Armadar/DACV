@@ -28,4 +28,7 @@ class User < ActiveRecord::Base
       end
       # self.email + self.role
     end
+    
+    def something
+    end
 end

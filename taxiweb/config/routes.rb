@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pages/pending_services'
+
+  get 'pages/my_services'
+
   get 'pages/estimate_cost'
 
   get 'pages/e'

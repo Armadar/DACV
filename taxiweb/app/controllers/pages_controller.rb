@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
-  def estimate_cost
+  def pending_services
+  end
+
+  def my_services
   end
 end
