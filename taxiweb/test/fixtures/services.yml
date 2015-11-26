@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: MyString
+  to: MyString
+  day: 2015-11-26 06:17:18
+  driver: 1
+  user_id: 
+
+two:
+  from: MyString
+  to: MyString
+  day: 2015-11-26 06:17:18
+  driver: 1
+  user_id: 

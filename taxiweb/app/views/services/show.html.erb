@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @service.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @service.to %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @service.day %>
+</p>
+
+<p>
+  <strong>Driver:</strong>
+  <%= @service.driver %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @service.user %>
+</p>
+
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
