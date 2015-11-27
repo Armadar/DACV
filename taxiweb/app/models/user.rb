@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     
     def something
     end
+  
+  def getid
+    self.id
+  end
 end
