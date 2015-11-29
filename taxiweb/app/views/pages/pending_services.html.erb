@@ -5,7 +5,7 @@
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
     <% @Services.each do |service| %>
-      <li><%= link_to service.to, pages_tos_path  %></li>
+      <li><%= link_to service.to, pages_my_service_path(service)  %><%= service.from %></li>
     <% end %>
     </ul>
   </div><!--/.well -->
