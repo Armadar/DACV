@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     def pendingServices?
       Service.where(user_id: self.id).count>0
     end
+  
+  def getid
+    self.id
+  end
 end

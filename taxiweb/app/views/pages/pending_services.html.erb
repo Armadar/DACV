@@ -2,13 +2,11 @@
 <p></p>
 
 <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li><%= link_to "En 10:12, Miraflores 111", pages_tos_path  %></li>
-                <li><%= link_to "A las 11:33 , Chorrillos - Villa Marina 444", pages_contact_us_path  %></li>
-                <li><%= link_to "A las 11:33 , Lince - Jr. Candao 124", pages_contact_us_path  %></li>
-                <li><%= link_to "A las 12:15 , Brenia - Las cantuarias 111", pages_contact_us_path  %></li>
-                <li><%= link_to "A la 1:33 , San Borja - Jorge chavez 444", pages_contact_us_path  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+    <% @Services.each do |service| %>
+      <li><%= link_to service.to, pages_tos_path  %></li>
+    <% end %>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
