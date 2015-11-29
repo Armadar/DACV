@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126061717) do
+ActiveRecord::Schema.define(version: 20151127214404) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name", limit: 255
@@ -25,13 +25,14 @@ ActiveRecord::Schema.define(version: 20151126061717) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "services", force: :cascade do |t|
-    t.string   "from",       limit: 255
-    t.string   "to",         limit: 255
+    t.string   "from",         limit: 255
+    t.string   "to",           limit: 255
     t.datetime "day"
-    t.integer  "driver",     limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "driver",       limit: 4
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "tipoVehiculo", limit: 255
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree

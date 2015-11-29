@@ -17,6 +17,7 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
+        <td><%= service.tipoVehiculo %></td>
         <td><%= service.from %></td>
         <td><%= service.to %></td>
         <td><%= service.day %></td>

@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
       pages_pending_services_path
     else
        if resource.is_a?(User) && resource.user?
-          new_service_path
+         if resource.pendingServices?
+           services_path
+         else
+           new_service_path
+         end
         else 
            super
        end
