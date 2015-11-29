@@ -1,12 +1,16 @@
-<h1>Detalles del servicio Nro. <%= @Service.id %></h1>
+<h1>Details Service Nro. <%= @Service.id %></h1>
 <p></p>
 
 <div class="col-lg-3">
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
-    
-      <%= @Service.to %>
-    
+      <h2><%= @Service.hourservice %></h2>
+      <p>From: <%= @Service.from %></p>
+      <p>To: <%= @Service.to %></p>
+      <p>Customer: <%= @Service.customerName %></p>
+      <p>
+      <%= link_to "Return list", pages_pending_services_path %>
+      </p>
     </ul>
   </div><!--/.well -->
 </div><!--/span-->
