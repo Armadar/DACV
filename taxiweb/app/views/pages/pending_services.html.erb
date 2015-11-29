@@ -1,11 +1,15 @@
-<h1>Servicios pendientes</h1>
+<h1>Pending Services</h1>
 <p></p>
 
 <div class="col-lg-3">
   <div class="well sidebar-nav">
     <ul class="nav nav-list">
     <% @Services.each do |service| %>
-      <li><%= link_to service.to, pages_my_service_path(service)  %><%= service.from %></li>
+      <li>
+        <h2><%= service.hourservice %></h2>
+        <p><%= link_to "To: " + service.to, pages_my_service_path(service)  %><br />
+        <%= service.customerName %><br /></p>
+      </li>
     <% end %>
     </ul>
   </div><!--/.well -->
