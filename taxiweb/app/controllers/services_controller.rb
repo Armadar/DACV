@@ -11,7 +11,12 @@ class ServicesController < ApplicationController
       if service.driver != nil
         service.driverName = getProfileName(service.driver)
       else
-        service.driverName = '(Pendiente)'
+        service.driverName = '(Pending)'
+      end
+      if service.user_id != nil
+        service.userName = getProfileName(service.user_id)
+      else
+        service.userName = ''
       end
     end
   end

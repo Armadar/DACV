@@ -2,11 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :from %>
-    <%= f.input :to %>
-    <%= f.input :day %>
-    <%= f.input :qPassengers %>
+    <% if current_user && current_user.user? %>
+      <%= f.input :from %>
+      <%= f.input :to %>
+      <%= f.input :day %>
+      <%= f.input :qPassengers %>
+    <% end %>
     <%= f.input :tipoVehiculo, collection: ['Sedan','Minivan'], :selected => @service.tipoVehiculo %>
+    <% if current_user && current_user.operator? %>
+      
+    <% end %>
   </div>
 
   <div class="form-actions">

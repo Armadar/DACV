@@ -10,11 +10,15 @@ class ApplicationController < ActionController::Base
        if resource.is_a?(User) && resource.user?
          if resource.pendingServices?
            services_path
-         else
-           new_service_path
+           else
+             new_service_path
          end
-        else 
-           super
+        else
+            if resource.is_a?(User) && resource.operator?
+              services_path
+            else
+              super
+            end
        end
     end
   end

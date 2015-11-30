@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>My Services</h1>
+<% if current_user && current_user.user? %>
+  <h1>My Services</h1>
+  <% else %>
+  <h1>Services</h1>
+<% end %>
 
 <table>
   <thead>
@@ -24,11 +28,18 @@
         <td><%= service.dayFormat %></td>
         <td><%= service.driverName %></td>
         <% if current_user && current_user.operator? %>
-        <td><%= service.user %></td>
+        <td><%= service.userName %></td>
         <% end %>
         <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if current_user && current_user.user? %>
+          <td><%= link_to 'Edit', edit_service_path(service) %></td>
+          <% end %>
+          <% if current_user && current_user.operator? && service.hasDriver %>
+          <td><%= link_to 'Assign Driver', edit_service_path(service) %></td>
+          <% end %>
+          <% if current_user && current_user.user? %>
+            <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +47,6 @@
 
 <br>
 
+<% if current_user && current_user.user? %>
 <%= link_to 'New Service', new_service_path %>
+<% end %>

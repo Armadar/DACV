@@ -1,9 +1,13 @@
 class Service < ActiveRecord::Base
-  attr_accessor :driverName
+  attr_accessor :driverName, :userName
   belongs_to :user
   
     def driverName
       @driverName
+    end
+    
+    def userName
+      @userName
     end
     
     def dayFormat
@@ -16,5 +20,9 @@ class Service < ActiveRecord::Base
         date = self.day.strftime("%d-%m  %H:%M")
       end
         date
+    end
+    
+    def hasDriver
+      self.driver==nil
     end
 end
