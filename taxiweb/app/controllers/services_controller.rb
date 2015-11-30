@@ -1,10 +1,19 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-
+  include GeneralHelper
+  
   # GET /services
   # GET /services.json
   def index
     @services = Service.all
+    @services.each do |service|
+      
+      if service.driver != nil
+        service.driverName = getProfileName(service.driver)
+      else
+        service.driverName = '(Pendiente)'
+      end
+    end
   end
 
   # GET /services/1
@@ -69,6 +78,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:from, :to, :day, :driver, :tipoVehiculo, :user_id)
+      params.require(:service).permit(:from, :to, :day, :driver, :tipoVehiculo, :qPassengers, :user_id)
     end
 end

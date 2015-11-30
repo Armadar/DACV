@@ -5,7 +5,7 @@
     <%= f.input :from %>
     <%= f.input :to %>
     <%= f.input :day %>
-    <%= f.collection_select(:driver, User.where(role: 2 ), :id, :friendly_name ) %>
+    <%= f.input :qPassengers %>
     <%= f.input :tipoVehiculo, collection: ['Sedan','Minivan'], :selected => @service.tipoVehiculo %>
   </div>
 
