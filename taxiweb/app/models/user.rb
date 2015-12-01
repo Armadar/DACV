@@ -22,14 +22,14 @@ class User < ActiveRecord::Base
   
     def friendly_name
       if self.try(:profile).first_name.nil?
-        self.email + self.role
+        self.email
       else
         self.profile.full_name
       end
-      # self.email + self.role
     end
     
-    def something
+    def pendingServices?
+      Service.where(user_id: self.id).count>0
     end
   
   def getid
