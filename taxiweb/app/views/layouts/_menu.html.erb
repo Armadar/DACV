@@ -4,3 +4,9 @@
 <% end %>
 <li><%= link_to "TOS", pages_tos_path  %></li>
 <li><%= link_to "Contact us", pages_contact_us_path  %></li>
+<% if current_user && current_user.driver? %>
+    <li><%= link_to "Pending service", pages_pending_services_path  %></li>
+<% end %>
+<% if current_user && current_user.operator? %>
+    <li><%= link_to "Panel Admin", rails_admin_path  %></li>
+<% end %>
