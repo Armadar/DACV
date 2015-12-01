@@ -33,4 +33,7 @@ class Service < ActiveRecord::Base
       myProfile.first_name + " " + myProfile.last_name
   end
   
+  def photoProfile
+  end
+  
 end
