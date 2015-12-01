@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :services
+  
   get 'pages/pending_services'
   
   get 'pages/my_services/:id' , controller: :pages, action: :my_services, as: :pages_my_service

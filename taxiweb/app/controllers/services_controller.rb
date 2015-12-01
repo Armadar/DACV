@@ -2,6 +2,9 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   include GeneralHelper
   
+  def something
+    services_path
+  end
   # GET /services
   # GET /services.json
   def index
