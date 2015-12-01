@@ -7,4 +7,5 @@ class PagesController < ApplicationController
   def my_services
     @Service = Service.find(params[:id])
   end
+  
 end
