@@ -10,7 +10,8 @@
     <% end %>
     <%= f.input :tipoVehiculo, collection: ['Sedan','Minivan'], :selected => @service.tipoVehiculo %>
     <% if current_user && current_user.operator? %>
-      
+    <label class="select optional">Select Driver</label>
+      <%= f.collection_select(:driver, User.where(role: 2 ), :id, :friendly_name ) %>
     <% end %>
   </div>
 

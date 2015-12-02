@@ -12,6 +12,7 @@
       <th>From</th>
       <th>To</th>
       <th>Day</th>
+      
       <th>Driver</th>
       <% if current_user && current_user.operator? %>
       <th>User</th>
@@ -26,9 +27,15 @@
         <td><%= service.from %></td>
         <td><%= service.to %></td>
         <td><%= service.dayFormat %></td>
-        <% if current_user && current_user.operator? && service.hasDriver %>
-        <td class="danger"><%= service.driverName %></td>
+        
+        <% if current_user && current_user.operator?  %>
+          <% if service.hasDriver %>
+          <td><%= service.driverName %></td>
+          <% else %>
+           <td class="danger"><%= link_to 'Assign Driver', edit_service_path(service) %></td>
+          <% end %>
         <% end %>
+        
         <% if current_user && current_user.operator? %>
         <td><%= service.userName %></td>
         <% end %>
@@ -36,11 +43,9 @@
           <% if current_user && current_user.user? %>
           <td><%= link_to 'Edit', edit_service_path(service) %></td>
           <% end %>
-          <% if current_user && current_user.operator? && service.hasDriver %>
-          <td><%= link_to 'Assign Driver', edit_service_path(service) %></td>
-          <% end %>
           <% if current_user && current_user.user? %>
             <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Favorite', service, method: :favorite, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
     <% end %>

@@ -70,14 +70,15 @@ class ServicesController < ApplicationController
 
   # DELETE /services/1
   # DELETE /services/1.json
-  def destroy
-    @service.destroy
+
+  def addAsFavorite
+   
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to services_url, notice: 'It was added as favorite.' }
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service

@@ -1,7 +1,7 @@
 module GeneralHelper
     
-    def getProfileName(id)
-         o = Profile.find_by user_id:id
+    def getProfileName(userid)
+         o = Profile.find_by user_id:userid
          o.full_name
     end
 end

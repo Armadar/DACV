@@ -23,7 +23,7 @@ class Service < ActiveRecord::Base
     end
     
     def hasDriver
-      self.driver==nil
+      self.driver!=nil
     end
 
   def hourservice
