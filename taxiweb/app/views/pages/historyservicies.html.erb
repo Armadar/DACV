@@ -1,8 +1,8 @@
-<h1 class="text-primary">Pending Services</h1>
+<h1 class="text-primary">History Services</h1>
 
     <% @Services.each do |service| %>
       <div class="jumbotron">
-        <h1><%= service.hourservice %></h1>
+        <h1><%= service.dayFormat %></h1>
         <p>To: <%=  service.to %></p>
         <p>Customer: <%= service.customerName %></p>
         <p><%= link_to "Details", pages_my_service_path(service), class: :"btn btn-primary btn-lg"  %>
