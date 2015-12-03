@@ -43,7 +43,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     @service.user_id = current_user.id
-    @service.amount = 2626
+    @service.amount = [10, 15, 25, 35].sample
     
     respond_to do |format|
       if @service.save
@@ -61,7 +61,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to @service, notice: 'Your Service has been successfully updated, if you are agree with the cost, please Confirm it.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }

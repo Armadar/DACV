@@ -15,17 +15,15 @@
     <% end %>
     </BR>
     </BR>
-    <% if current_user && current_user.user? && @service.amount!=nil %>
-    <label for="amount" class="string optional">Amount</label>
-    <label for="amount" class="string optional"><%@service.amount%></label>
-    <% end %>
+    <p>
+      <strong style="font-size: 20px;">Cost:</strong>
+      <strong style="font-size: 30px;">S/. <%= @service.amount %></strong>
+    </P>
   </div>
 
   <div class="form-actions">
-    <% if current_user && current_user.user? && @service.amount==nil %>
+    <% if current_user && current_user.user? %>
       <%= f.button :submit ,'Estimate Service (S/.)',  :class =>'btn btn-primary'%>
-    <% else %>
-      <%= f.button :submit ,'Confirm Service',  :class =>'btn btn-primary'%>
     <% end %>
   </div>
 <% end %>

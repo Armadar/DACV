@@ -59,7 +59,6 @@
           <% end %>
           <% if current_user && current_user.user? %>
             <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <td><%= link_to 'Favorite', service, method: :favorite, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>
     <% end %>
