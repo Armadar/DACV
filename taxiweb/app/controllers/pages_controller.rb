@@ -8,4 +8,8 @@ class PagesController < ApplicationController
     @Service = Service.find(params[:id])
   end
   
+  def validate
+      new_service_path
+  end
+  
 end

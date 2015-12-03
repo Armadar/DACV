@@ -13,9 +13,19 @@
     <label class="select optional">Select Driver</label>
       <%= f.collection_select(:driver, User.where(role: 2 ), :id, :friendly_name ) %>
     <% end %>
+    </BR>
+    </BR>
+    <% if current_user && current_user.user? && @service.amount!=nil %>
+    <label for="amount" class="string optional">Amount</label>
+    <label for="amount" class="string optional"><%@service.amount%></label>
+    <% end %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit ,'Request Service',  :class =>'btn btn-primary'%>
+    <% if current_user && current_user.user? && @service.amount==nil %>
+      <%= f.button :submit ,'Estimate Service (S/.)',  :class =>'btn btn-primary'%>
+    <% else %>
+      <%= f.button :submit ,'Confirm Service',  :class =>'btn btn-primary'%>
+    <% end %>
   </div>
 <% end %>

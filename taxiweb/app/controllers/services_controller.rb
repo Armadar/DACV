@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :confirm]
   include GeneralHelper
   
   def something
@@ -8,7 +8,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all
+    @services = Service.all.order(day: :desc)
     @services.each do |service|
       
       if service.driver != nil
@@ -43,9 +43,11 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     @service.user_id = current_user.id
+    @service.amount = 2626
+    
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, notice: 'Your Service has been successfully received, if you are agree with the cost, please Confirm it.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -70,6 +72,14 @@ class ServicesController < ApplicationController
 
   # DELETE /services/1
   # DELETE /services/1.json
+
+  def confirm
+    @service.confirm
+    respond_to do |format|
+      format.html { redirect_to services_path, notice: 'Your service has been registered, We will see you soon.' }
+      format.json { head :no_content }
+    end
+  end
 
   def addAsFavorite
    

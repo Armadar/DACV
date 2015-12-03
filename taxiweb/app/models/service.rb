@@ -58,4 +58,9 @@ class Service < ActiveRecord::Base
       myProfile.first_name + " " + myProfile.last_name
   end
   
+  def confirm
+    self.confirmed = true
+    self.save
+  end
+  
 end
