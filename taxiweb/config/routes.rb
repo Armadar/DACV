@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  get 'pages/historyservicies'
+
   resources :services
   
   get 'pages/pending_services'
   
   get 'services/:id/confirm', controller: :services, action: :confirm, as: :confirm_service
+  
+  get 'services/:id/favorite', controller: :services, action: :favorite, as: :favorite_service
   
   get 'pages/my_services/:id' , controller: :pages, action: :my_services, as: :pages_my_service
 

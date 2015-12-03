@@ -1,16 +1,12 @@
 <h1>Details Service Nro <%= @Service.id %></h1>
-<p></p>
 
-<div class="col-lg-3">
-  <div class="well sidebar-nav">
-    <ul class="nav nav-list">
-      <h2><%= @Service.hourservice %></h2>
-      <p>From: <%= @Service.from %></p>
-      <p>To: <%= @Service.to %></p>
-      <p>Customer: <%= @Service.customerName %></p>
-      <p>
-      <%= link_to "Return list", pages_pending_services_path %>
-      </p>
-    </ul>
-  </div><!--/.well -->
-</div><!--/span-->
+<div class="jumbotron">
+  <h1><%= @Service.dayFormat %></h1>
+  <p>From: <%= @Service.from %></p>
+  <p>To: <%= @Service.to %></p>
+  <p>Customer: <%= @Service.customerName %></p>
+</div>
+
+<p>
+  <%= link_to "Return list", pages_pending_services_path, class: :"btn btn-primary btn-lg" %>
+</p>
