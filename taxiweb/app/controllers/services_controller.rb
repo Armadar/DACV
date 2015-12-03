@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy, :confirm]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :confirm, :favorite]
   include GeneralHelper
   
   def something
@@ -81,16 +81,16 @@ class ServicesController < ApplicationController
     end
   end
 
-  def addAsFavorite
-   
+  def destroy
+    @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'It was added as favorite.' }
+      format.html { redirect_to services_path, notice: 'The Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
   
   def favorite
-    @service.favorite
+    @service.setFavorite
     respond_to do |format|
       format.html { redirect_to services_path, notice: 'It was added as favorite.' }
       format.json { head :no_content }

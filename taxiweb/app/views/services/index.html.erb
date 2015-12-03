@@ -23,6 +23,7 @@
       <th>User</th>
       <% end %>
       <th colspan="3"></th>
+      <th>Favorite</th>
     </tr>
   </thead>
 
@@ -53,12 +54,17 @@
         <% if current_user && current_user.operator? %>
         <td><%= service.userName %></td>
         <% end %>
-        <td><%= link_to 'Show', service %></td>
+        <td><%= link_to 'View', service ,:class => 'btn btn-default btn-xs'  %></td>
           <% if current_user && current_user.user? %>
-          <td><%= link_to 'Edit', edit_service_path(service) %></td>
+          <td><%= link_to 'Edit', edit_service_path(service),style: 'color:#FFFFFF;',:class => 'btn btn-info btn-xs'  %></td>
           <% end %>
           <% if current_user && current_user.user? %>
-            <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' },style: 'color:#FFFFFF;',:class => 'btn btn-danger btn-xs' %></td>
+            <% if service.favorite %>
+              <td bgcolor="#f0ad4e"><%= link_to 'Remove', favorite_service_path(service) ,style: 'color:#FFFFFF;',:class => 'btn btn-warning btn-xs' %></td>
+            <% else %>
+              <td><%= link_to 'Add', favorite_service_path(service) ,:class => 'btn btn-default btn-xs' %></td>
+            <% end %>
           <% end %>
       </tr>
     <% end %>
