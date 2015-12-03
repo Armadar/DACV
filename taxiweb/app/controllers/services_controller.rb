@@ -9,6 +9,9 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @services = Service.all.order(day: :desc)
+    if current_user && current_user.user?
+      @services = Service.where("user_id = " + current_user.getid.to_s)
+    end
     @services.each do |service|
       
       if service.driver != nil
@@ -61,8 +64,13 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Your Service has been successfully updated, if you are agree with the cost, please Confirm it.' }
-        format.json { render :show, status: :ok, location: @service }
+        if current_user && current_user.user?
+          format.html { redirect_to @service, notice: 'Your Service has been successfully updated, if you are agree with the cost, please Confirm it.' }
+          format.json { render :show, status: :ok, location: @service }
+        else
+          format.html { redirect_to services_path, notice: 'The Driver was assigned successfully.' }
+          format.json { head :no_content }
+        end
       else
         format.html { render :edit }
         format.json { render json: @service.errors, status: :unprocessable_entity }

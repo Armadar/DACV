@@ -55,7 +55,7 @@ class Service < ActiveRecord::Base
   
   def customerName
       myProfile = Profile.find_by(user_id: self.user_id)
-      myProfile.first_name + " " + myProfile.last_name
+      myProfile.full_name
   end
   
   def confirm

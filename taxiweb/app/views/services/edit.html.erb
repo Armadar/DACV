@@ -1,7 +1,13 @@
-<h1 class="text-primary">Editing Service</h1>
+<% if current_user && current_user.user? %>
+    <h1 class="text-primary">Editing Service</h1>
+<% else %>
+    <h1 class="text-primary">Assigning driver</h1>
+<% end %>
 
 <%= render 'form' %>
 </P>
 </P>
-<%= link_to 'Show', @service, style: 'color:#FFFFFF;',:class => 'btn btn-primary' %> 
+<% if current_user && current_user.user? %>
+<%= link_to 'Show', @service, style: 'color:#FFFFFF;',:class => 'btn btn-primary' %>
+<% end %>
 <%= link_to 'Back', services_path, style: 'color:#FFFFFF;',:class => 'btn btn-primary' %>

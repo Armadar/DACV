@@ -32,9 +32,11 @@
 </P>
 </P>
         <td>
+        <% if current_user && current_user.user? %>  
           <%= link_to t('.confirm', :default => 'Agree, I confirm'),
                       confirm_service_path(@service),
                       :class => 'btn btn-success' %>
+        <% end %>
         </td>
 <%= link_to 'Edit', edit_service_path(@service), style: 'color:#FFFFFF;',:class => 'btn btn-primary' %>
 <%= link_to 'Back', services_path, style: 'color:#FFFFFF;',:class => 'btn btn-primary' %>
