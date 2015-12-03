@@ -9,6 +9,7 @@
     <li><%= link_to "My Services", services_path  %></li>
 <% end %>
 <% if current_user && current_user.driver? %>
+    <li><%= link_to "History Services", pages_historyservicies_path  %></li>
     <li><%= link_to "Pending Services", pages_pending_services_path  %></li>
 <% end %>
 <% if current_user && current_user.operator? %>

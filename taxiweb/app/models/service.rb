@@ -63,4 +63,9 @@ class Service < ActiveRecord::Base
     self.save
   end
   
+  def favorite
+    self.favorite = true
+    self.save
+  end
+  
 end

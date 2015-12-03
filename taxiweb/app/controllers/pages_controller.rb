@@ -12,4 +12,8 @@ class PagesController < ApplicationController
       new_service_path
   end
   
+  def historyservicies
+    @Services = Service.where("driver = " + current_user.getid.to_s)
+  end
+  
 end
