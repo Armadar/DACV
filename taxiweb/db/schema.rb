@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202211220) do
+ActiveRecord::Schema.define(version: 20151203202237) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name", limit: 255
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151202211220) do
     t.boolean  "confirmed"
     t.decimal  "amount",                   precision: 10
     t.boolean  "favorite"
+    t.string   "payMethod",    limit: 255
   end
 
   add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree

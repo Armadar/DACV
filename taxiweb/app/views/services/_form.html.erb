@@ -8,6 +8,7 @@
       <%= f.input :day %>
       <%= f.input :qPassengers %>
       <%= f.input :tipoVehiculo, collection: ['Sedan','Minivan'], :selected => @service.tipoVehiculo %>
+      <%= f.input :payMethod, collection: ['Cash','Credit Card'], :selected => @service.payMethod %>
     <% end %>
     
     <% if current_user && current_user.operator? %>
