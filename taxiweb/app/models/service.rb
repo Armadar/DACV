@@ -68,4 +68,8 @@ class Service < ActiveRecord::Base
     self.save
   end
   
+  def nroConfirmation
+      self.id.to_s +  self.day.strftime("%d%m")
+  end
+  
 end

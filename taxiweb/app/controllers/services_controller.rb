@@ -10,7 +10,7 @@ class ServicesController < ApplicationController
   def index
     @services = Service.all.order(day: :desc)
     if current_user && current_user.user?
-      @services = Service.where("user_id = " + current_user.getid.to_s)
+      @services = Service.where("user_id = " + current_user.getid.to_s).order(day: :desc)
     end
     @services.each do |service|
       
@@ -84,7 +84,7 @@ class ServicesController < ApplicationController
   def confirm
     @service.confirm
     respond_to do |format|
-      format.html { redirect_to services_path, notice: 'Your service has been registered, We will see you soon.' }
+      format.html { redirect_to services_path, notice: 'Confirmation number: ' + @service.nroConfirmation  + ', Your service has been registered, We will see you soon.' }
       format.json { head :no_content }
     end
   end

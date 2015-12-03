@@ -13,6 +13,7 @@
 <table class="table table-striped table-bordered table-condensed table-hover">
   <thead>
     <tr>
+      <th>Nro</th>
       <th>    </th>
       <th>From</th>
       <th>To</th>
@@ -32,6 +33,7 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
+        <td><%= service.nroConfirmation %></td>
         <% if service.confirmed %>
           <td class="success"></td>
         <% else %>
